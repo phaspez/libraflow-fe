@@ -31,7 +31,7 @@ const handleLogout = () => {
 			</RouterLink>
 		</div>
 		<div v-else class="flex items-center gap-2">
-			<p>{{ `Xin chào, ${user.firstName} ${user.lastName}!` }}</p>
+			<p class="hidden md:block">{{ `Xin chào, ${user.firstName} ${user.lastName}!` }}</p>
 			<Button variant="outline" class="grid aspect-square"
 				><Icon icon="radix-icons:person"></Icon
 			></Button>

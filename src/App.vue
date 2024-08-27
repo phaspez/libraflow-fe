@@ -5,7 +5,7 @@ import { Toaster } from '@/components/ui/toast'
 </script>
 
 <template>
-	<header class="sticky top-0 w-full px-20 bg-amber-50 dark:bg-slate-800">
+	<header class="sticky top-0 w-full px-2 md:px-10 lg:px-20 bg-amber-50 dark:bg-slate-800">
 		<HeaderNav />
 	</header>
 	<main class="pt-14 px-2 md:px-10 lg:px-20">

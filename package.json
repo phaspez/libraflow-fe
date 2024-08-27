@@ -13,6 +13,7 @@
 		"format": "prettier --write src/"
 	},
 	"dependencies": {
+		"@internationalized/date": "^3.5.5",
 		"@vee-validate/zod": "^4.13.2",
 		"@vueuse/core": "^11.0.3",
 		"axios": "^1.7.5",

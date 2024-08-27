@@ -11,7 +11,6 @@ export function useUser() {
 				withCredentials: true,
 			})
 			.then((res) => {
-				console.log(res.data)
 				user.value = res.data as LoginFormData
 			})
 	})
