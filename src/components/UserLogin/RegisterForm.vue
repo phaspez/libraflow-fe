@@ -15,16 +15,19 @@ import DatePicker from '@/components/ui/DatePicker.vue'
 const formSchema = toTypedSchema(
 	z
 		.object({
-			firstName: z.string().min(2).max(50),
-			lastName: z.string().min(2).max(50),
+			firstName: z.string().min(2, 'Tên phải chứa ít nhất 2 kí tự').max(50, 'Tên quá dài'),
+			lastName: z.string().min(2, 'Họ phải chứa ít nhất 2 kí tự').max(50, 'Họ quá dài'),
 			birthdate: z.date().optional(),
 			address: z.string().optional(),
 			phone: z
 				.string()
-				.regex(/^0\d+$/)
-				.min(10)
-				.max(20),
-			password: z.string().min(6).max(50),
+				.regex(/^0\d+$/, 'Số điện thoại phải bắt đầu bằng 0')
+				.min(10, 'Số điện thoại có ít nhất 10 số')
+				.max(20, 'Số điện thoại không quá 20 số'),
+			password: z
+				.string()
+				.min(6, 'Mật khẩu phải nhiều hơn 6 kí tự')
+				.max(50, 'Mật khẩu quá dài'),
 			confirmPassword: z.string().min(6).max(50),
 		})
 		.refine((data) => data.password === data.confirmPassword, {
@@ -69,20 +72,20 @@ const onSubmit = form.handleSubmit(async (values) => {
 	<p>Các trường có dấu * là các trường bắt buộc</p>
 	<form @submit.prevent="onSubmit" class="p-2">
 		<div class="py-2 flex gap-2">
-			<FormField v-slot="{ field }" name="firstName">
+			<FormField v-slot="{ field }" name="lastName">
 				<FormItem>
 					<FormLabel>Họ *</FormLabel>
 					<FormControl>
-						<Input type="text" required placeholder="Họ..." v-bind="field" />
+						<Input type="text" required placeholder="Tên..." v-bind="field" />
 					</FormControl>
 					<FormMessage />
 				</FormItem>
 			</FormField>
-			<FormField v-slot="{ field }" name="lastName">
+			<FormField v-slot="{ field }" name="firstName">
 				<FormItem>
 					<FormLabel>Tên *</FormLabel>
 					<FormControl>
-						<Input type="text" required placeholder="Tên..." v-bind="field" />
+						<Input type="text" required placeholder="Họ..." v-bind="field" />
 					</FormControl>
 					<FormMessage />
 				</FormItem>

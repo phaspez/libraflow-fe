@@ -5,26 +5,27 @@ import RegisterForm from '@/components/UserLogin/RegisterForm.vue'
 </script>
 
 <template>
-	<!-- Right side with background image -->
-	<div class="fixed right-0 top-0 -z-10 h-screen img">
-		<img src="@/assets/library.jpg" alt="Login" class="w-full h-full object-cover" />
-	</div>
+	<div class="px-1 py-6 md:p-5 lg:p-10">
+		<div class="fixed right-0 top-0 -z-10 h-screen img">
+			<img src="@/assets/library.jpg" alt="Login" class="w-full h-full object-cover" />
+		</div>
 
-	<div class="flex overflow-hidden">
-		<!-- Left side with tabs -->
-		<div class="flex-1 flex">
-			<Tabs default-value="login" class="w-full md:w-[400px]">
-				<TabsList>
-					<TabsTrigger value="login"> Đăng nhập </TabsTrigger>
-					<TabsTrigger value="register"> Đăng ký </TabsTrigger>
-				</TabsList>
-				<TabsContent value="login">
-					<LoginForm />
-				</TabsContent>
-				<TabsContent value="register">
-					<RegisterForm />
-				</TabsContent>
-			</Tabs>
+		<div class="flex overflow-hidden">
+			<!-- Left side with tabs -->
+			<div class="flex-1 flex">
+				<Tabs default-value="login" class="w-full md:w-[400px]">
+					<TabsList>
+						<TabsTrigger value="login"> Đăng nhập </TabsTrigger>
+						<TabsTrigger value="register"> Đăng ký </TabsTrigger>
+					</TabsList>
+					<TabsContent value="login">
+						<LoginForm />
+					</TabsContent>
+					<TabsContent value="register">
+						<RegisterForm />
+					</TabsContent>
+				</Tabs>
+			</div>
 		</div>
 	</div>
 </template>

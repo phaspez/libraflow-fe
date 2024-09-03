@@ -24,6 +24,11 @@ const router = createRouter({
 			name: 'not-found',
 			component: () => import('../views/NotFoundView.vue'),
 		},
+		{
+			path: '/admin/addbook',
+			name: 'admin.addbook',
+			component: () => import('../views/AdminViews/AddBookView.vue'),
+		},
 		// {
 		// 	path: '/about',
 		// 	name: 'about',

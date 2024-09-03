@@ -9,6 +9,8 @@ import {
 } from '@/components/ui/card'
 import { type Book } from '@/types'
 import type { PropType } from 'vue'
+import { watch } from 'vue'
+import axios from 'axios'
 
 const props = defineProps({
 	book: {
@@ -21,7 +23,9 @@ const { title, image, _id } = props.book
 </script>
 
 <template>
-	<Card class="w-full overflow-clip shadow-sm hover:shadow-2xl smooth_transition">
+	<Card
+		class="w-full overflow-clip shadow-sm hover:shadow-2xl dark:shadow-white smooth_transition"
+	>
 		<div class="w-full h-60">
 			<RouterLink :to="`/books/${_id}`">
 				<img :src="image" alt="Card Image" />
@@ -29,7 +33,6 @@ const { title, image, _id } = props.book
 		</div>
 		<div class="p-1 pt-0 text-center">
 			<h4>{{ title || 'Unnamed Item' }}</h4>
-			<!--			<CardDescription>{{ description || 'No description' }}</CardDescription>-->
 		</div>
 		<CardContent> Card Content </CardContent>
 	</Card>

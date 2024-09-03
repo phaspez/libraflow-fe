@@ -53,19 +53,6 @@ const onSubmit = form.handleSubmit(async (values) => {
 			})
 		})
 })
-
-const handleCur = async () => {
-	await axios
-		.get(import.meta.env.VITE_BACKEND_URL + '/api/user/me', {
-			withCredentials: true,
-		})
-		.then((res) => {
-			console.log(res)
-		})
-		.catch((err: AxiosError) => {
-			console.log(err)
-		})
-}
 </script>
 
 <template>
