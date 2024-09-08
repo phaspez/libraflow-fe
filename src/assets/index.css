@@ -77,11 +77,11 @@
 	}
 
 	h1 {
-		@apply text-4xl font-bold py-2;
+		@apply text-4xl font-serif py-2;
 	}
 
 	h2 {
-		@apply text-3xl font-bold py-2;
+		@apply text-3xl font-serif py-2;
 	}
 
 	h3 {
@@ -98,5 +98,13 @@
 
 	.smooth_transition {
 		@apply transition-all duration-100;
+	}
+
+	.view-container {
+		@apply pt-5 px-4 md:p-5 lg:px-10
+	}
+
+	.link {
+		@apply text-blue-500
 	}
 }

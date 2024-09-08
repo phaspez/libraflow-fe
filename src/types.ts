@@ -47,3 +47,8 @@ export type User = {
 	address?: string
 	phone: string
 }
+
+export type CartItem = {
+	bookId: string
+	quantity: number
+}

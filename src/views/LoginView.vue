@@ -5,7 +5,7 @@ import RegisterForm from '@/components/UserLogin/RegisterForm.vue'
 </script>
 
 <template>
-	<div class="px-1 py-6 md:p-5 lg:p-10">
+	<div class="view-container">
 		<div class="fixed right-0 top-0 -z-10 h-screen img">
 			<img src="@/assets/library.jpg" alt="Login" class="w-full h-full object-cover" />
 		</div>

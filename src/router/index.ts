@@ -25,9 +25,19 @@ const router = createRouter({
 			component: () => import('../views/NotFoundView.vue'),
 		},
 		{
-			path: '/admin/addbook',
-			name: 'admin.addbook',
-			component: () => import('../views/AdminViews/AddBookView.vue'),
+			path: '/books/',
+			name: 'books',
+			component: () => import('../views/BooksView.vue'),
+		},
+		{
+			path: '/cart/',
+			name: 'cart',
+			component: () => import('../views/CartView.vue'),
+		},
+		{
+			path: '/profile',
+			name: 'profile',
+			component: () => import('../views/ProfileView.vue'),
 		},
 		// {
 		// 	path: '/about',

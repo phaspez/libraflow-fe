@@ -19,7 +19,7 @@ const props = defineProps({
 	},
 })
 
-const { title, image, _id } = props.book
+const { title, image, _id, description } = props.book
 </script>
 
 <template>
@@ -32,9 +32,13 @@ const { title, image, _id } = props.book
 			</RouterLink>
 		</div>
 		<div class="p-1 pt-0 text-center">
-			<h4>{{ title || 'Unnamed Item' }}</h4>
+      <RouterLink :to="`/books/${_id}`">
+			  <h4>{{ title || 'Unnamed Item' }}</h4>
+      </RouterLink>
 		</div>
-		<CardContent> Card Content </CardContent>
+    <div class="p-4">
+		<p class="line-clamp-2"> {{ description }} </p>
+    </div>
 	</Card>
 </template>
 

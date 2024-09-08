@@ -29,6 +29,7 @@ const formSchema = toTypedSchema(
 				.min(6, 'Mật khẩu phải nhiều hơn 6 kí tự')
 				.max(50, 'Mật khẩu quá dài'),
 			confirmPassword: z.string().min(6).max(50),
+			roles: z.string().default('user'),
 		})
 		.refine((data) => data.password === data.confirmPassword, {
 			message: 'Mật khẩu không trùng khớp',
@@ -36,12 +37,11 @@ const formSchema = toTypedSchema(
 		}),
 )
 
-const form = useForm({ validationSchema: formSchema })
+const form = useForm({ validationSchema: formSchema, initialValues: { role: 'user' } })
 const { toast } = useToast()
 
 const onSubmit = form.handleSubmit(async (values) => {
 	console.log(values)
-	return
 	await axios
 		.post(import.meta.env.VITE_BACKEND_URL + '/api/user/register', values, {
 			withCredentials: true,
