@@ -96,6 +96,18 @@
 		@apply text-lg font-bold py-2;
 	}
 
+	.background {
+		background-image: url(/public/vivid-light.jpg);
+		background-size: cover;
+		background-position: center;
+	}
+
+	.background-dark {
+		background-image: url(/public/vivid-dark.jpg);
+		background-size: cover;
+		background-position: center;
+	}
+
 	.smooth_transition {
 		@apply transition-all duration-100;
 	}

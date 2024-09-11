@@ -3,7 +3,7 @@ import type { LoginFormData } from '@/types.js'
 import axios from 'axios'
 
 export function useUser() {
-	const user = ref<LoginFormData>()
+	const user = ref<LoginFormData | undefined>()
 
 	onMounted(() => {
 		axios

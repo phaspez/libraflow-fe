@@ -33,16 +33,17 @@ const handleLogout = () => {
 		<span class="material-symbols-outlined"> library_books </span>
 		<RouterLink to="/" class="font-serif text-2xl pr-8">LibraFlow</RouterLink>
 		<div class="items-center hidden lg:flex">
-			<RouterLink to="/book" class="flex gap-2"
+			<RouterLink to="/books" class="flex gap-2"
 				><span class="material-symbols-outlined"> book </span> Sách
 			</RouterLink>
 		</div>
 		<span class="grow" />
-		<div v-if="!user">
-			<RouterLink to="/login">
-				<Button variant="outline"><Icon icon="radix-icons:enter"></Icon></Button>
+
+		<Button v-if="!user" variant="outline" class="aspect-square">
+			<RouterLink to="/login" class="aspect-square">
+				<span class="material-symbols-outlined"> login </span>
 			</RouterLink>
-		</div>
+		</Button>
 		<div v-else class="flex items-center gap-2">
 			<p class="hidden md:block"></p>
 			<DropdownMenu>
@@ -67,12 +68,12 @@ const handleLogout = () => {
 				</DropdownMenuContent>
 			</DropdownMenu>
 		</div>
-		<Button class="aspect-square" variant="outline">
+
+		<Button v-if="user" class="aspect-square" variant="outline">
 			<RouterLink to="/cart" class="aspect-square">
 				<span class="material-symbols-outlined"> shopping_cart </span>
 			</RouterLink>
 		</Button>
-
 		<ModeToggle />
 	</div>
 </template>

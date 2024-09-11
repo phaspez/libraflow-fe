@@ -24,6 +24,7 @@ import { Label } from '@/components/ui/label'
 import { Button } from '@/components/ui/button'
 import { useToast } from '@/components/ui/toast'
 import { useCart } from '@/hooks/useCart'
+import { useUser } from '@/hooks/useUser'
 
 const route = useRoute()
 const router = useRouter()
@@ -32,6 +33,7 @@ let book = ref<Book>()
 
 const { toast } = useToast()
 const { cart, getItemQuantiry, setItemQuantity } = useCart()
+const { user } = useUser()
 
 onMounted(() => {
 	axios
@@ -97,27 +99,32 @@ const handleAddToCart = () => {
 			</div>
 			<div class="col-span-3">
 				<h2>{{ book?.title }}</h2>
-				<p>{{ book?.description }}</p>
+				<p class="py-2">{{ book?.description }}</p>
 				<div>
+					<div class="flex gap-2 items-end py-2">
+						<NumberField
+							id="count"
+							v-model="countValue"
+							:default-value="1"
+							:min="1"
+							:max="book?.inLibrary"
+							:disabled="!user"
+						>
+							<Label for="count">Số lượng</Label>
+							<NumberFieldContent>
+								<NumberFieldDecrement />
+								<NumberFieldInput />
+								<NumberFieldIncrement />
+							</NumberFieldContent>
+						</NumberField>
+						<Button :disabled="!user" @click="handleAddToCart" class="aspect-square"
+							><span class="material-symbols-outlined">
+								add_shopping_cart
+							</span></Button
+						>
+					</div>
 					<h4>Thông tin chi tiết</h4>
 					<BookDetailsTable :book="book" />
-				</div>
-				<div class="flex gap-2 items-end py-2">
-					<NumberField
-						id="count"
-						v-model="countValue"
-						:default-value="1"
-						:min="1"
-						:max="book?.inLibrary"
-					>
-						<Label for="count">Số lượng</Label>
-						<NumberFieldContent>
-							<NumberFieldDecrement />
-							<NumberFieldInput />
-							<NumberFieldIncrement />
-						</NumberFieldContent>
-					</NumberField>
-					<Button @click="handleAddToCart">Thêm vào giỏ hàng</Button>
 				</div>
 			</div>
 		</div>

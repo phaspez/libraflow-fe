@@ -12,6 +12,9 @@ import Footer from '@/components/Footer.vue'
 	<main class="min-h-screen">
 		<RouterView />
 	</main>
+	<div
+		class="fixed w-screen h-screen top-0 opacity-15 mix-blend-plus-darker -z-10 background dark:background-dark dark:mix-blend-difference"
+	/>
 	<footer class="z-10 w-full px-2 md:px-10 lg:px-20 bg-amber-50 dark:bg-slate-800">
 		<Footer />
 	</footer>

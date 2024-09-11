@@ -33,6 +33,7 @@ export type Book = {
 	inLibrary: number
 	image: string
 	category?: Category
+	price: number
 	pageCount: number
 	publishYear: number
 	publisher?: Publisher
@@ -50,5 +51,6 @@ export type User = {
 
 export type CartItem = {
 	bookId: string
+	pricePerBook: number
 	quantity: number
 }

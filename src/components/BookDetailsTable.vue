@@ -32,14 +32,6 @@ const props = defineProps({
 			</TableRow>
 			<TableRow>
 				<TableCell>
-					<p>Thể loại</p>
-				</TableCell>
-				<TableCell>
-					<p>{{ book?.category?.name || 'Đang cập nhật' }}</p>
-				</TableCell>
-			</TableRow>
-			<TableRow>
-				<TableCell>
 					<p>Số trang</p>
 				</TableCell>
 				<TableCell>
@@ -52,14 +44,6 @@ const props = defineProps({
 				</TableCell>
 				<TableCell>
 					<p>{{ book?.publisher?.name || 'Đang cập nhật' }}</p>
-				</TableCell>
-			</TableRow>
-			<TableRow>
-				<TableCell>
-					<p>Năm xuất bản</p>
-				</TableCell>
-				<TableCell>
-					<p>{{ book?.publishYear || 'Đang cập nhật' }}</p>
 				</TableCell>
 			</TableRow>
 			<TableRow>
