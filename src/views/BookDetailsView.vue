@@ -25,6 +25,7 @@ import { Button } from '@/components/ui/button'
 import { useToast } from '@/components/ui/toast'
 import { useCart } from '@/hooks/useCart'
 import { useUser } from '@/hooks/useUser'
+import RecommendBooks from '@/components/RecommendBooks.vue'
 
 const route = useRoute()
 const router = useRouter()
@@ -93,13 +94,18 @@ const handleAddToCart = () => {
 				</BreadcrumbItem>
 			</BreadcrumbList>
 		</Breadcrumb>
-		<div class="grid md:grid-cols-4 gap-4 py-4">
-			<div class="col-span-4 lg:col-span-1 w-full items-center image-container">
+		<div class="grid lg:grid-cols-4 gap-4 py-4">
+			<div class="flex col-span-4 lg:col-span-1 w-full items-start image-container">
 				<img class="rounded-lg" :src="book?.image" />
 			</div>
 			<div class="col-span-3">
 				<h2>{{ book?.title }}</h2>
-				<p class="py-2">{{ book?.description }}</p>
+				<div v-if="book?.description">
+					<h4>Mô tả</h4>
+					<p class="py-4 px-1 text-justify" style="white-space: pre-wrap">
+						{{ book?.description }}
+					</p>
+				</div>
 				<div>
 					<div class="flex gap-2 items-end py-2">
 						<NumberField
@@ -128,6 +134,7 @@ const handleAddToCart = () => {
 				</div>
 			</div>
 		</div>
+		<RecommendBooks />
 	</div>
 </template>
 
@@ -135,6 +142,6 @@ const handleAddToCart = () => {
 .image-container {
 	display: flex;
 	justify-content: center;
-	align-items: center;
+	//align-items: center;
 }
 </style>

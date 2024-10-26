@@ -13,6 +13,7 @@ import type { CartItem } from '@/types'
 import { useUser } from '@/hooks/useUser'
 import { useRouter } from 'vue-router'
 import axios from 'axios'
+import { toast } from '@/components/ui/toast'
 
 // cart
 const cart = ref<CartItem[]>([])
@@ -98,15 +99,37 @@ const getItems = () => {
 	return cart.value
 }
 
-const handleBorrowItems = () => {
-	for (const item of cart.value) {
-		for (let i = 0; i < item.quantity; i++) {
-			console.log('Borrowing item: ', item.bookId)
-			axios.post(import.meta.env.VITE_BACKEND_URL + '/api/borrow', {
-				bookId: item.bookId,
-				userId: user.value?.token,
-			})
-		}
+const handleBorrowItems = async () => {
+	try {
+		// Collect promises for all borrow requests
+		const borrowPromises = cart.value.map((item) => {
+			const requests = []
+			for (let i = 0; i < item.quantity; i++) {
+				requests.push(
+					axios.post(
+						import.meta.env.VITE_BACKEND_URL + '/api/borrow',
+						{
+							bookId: item.bookId,
+							userId: user.value?.token,
+						},
+						{
+							withCredentials: true,
+						},
+					),
+				)
+			}
+			return Promise.all(requests)
+		})
+
+		// Wait for all borrow requests to complete
+		await Promise.all(borrowPromises.flat())
+		toast({
+			title: 'Mượn sách thành công!',
+		})
+		clearAllItems()
+	} catch (err) {
+		console.error('Error borrowing items:', err)
+		alert('There was an error borrowing your items. Please try again.')
 	}
 }
 </script>
@@ -134,7 +157,7 @@ const handleBorrowItems = () => {
 		<div class="flex flex-wrap w-full items-center">
 			<h1>Giỏ hàng của tôi</h1>
 			<div class="grow" />
-			<div class="flex flex-wrap items-baseline gap-4">
+			<div v-if="getItems().length > 0" class="flex flex-wrap items-baseline gap-4">
 				<h2>
 					{{
 						totalValue.toLocaleString('vi-VN', {

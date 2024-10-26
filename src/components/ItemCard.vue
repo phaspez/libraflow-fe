@@ -24,21 +24,21 @@ const { title, image, _id, description } = props.book
 
 <template>
 	<Card
-		class="w-full overflow-clip shadow-sm hover:shadow-2xl dark:shadow-white smooth_transition"
+		class="w-full overflow-clip shadow-sm dark:hover:bg-slate-800 hover:bg-gray-200 dark:shadow-white smooth_transition"
 	>
 		<div class="w-full h-60">
-			<RouterLink :to="`/books/${_id}`">
+			<RouterLink :key="_id" :to="`/books/${_id}`">
 				<img :src="image" alt="Card Image" />
 			</RouterLink>
 		</div>
 		<div class="p-1 pt-0 text-center">
-      <RouterLink :to="`/books/${_id}`">
-			  <h4>{{ title || 'Unnamed Item' }}</h4>
-      </RouterLink>
+			<RouterLink :key="_id" :to="`/books/${_id}`">
+				<h4 class="line-clamp-2">{{ title || 'Unnamed Item' }}</h4>
+			</RouterLink>
 		</div>
-    <div class="p-4">
-		<p class="line-clamp-2"> {{ description }} </p>
-    </div>
+		<div class="p-4">
+			<p class="line-clamp-2">{{ description }}</p>
+		</div>
 	</Card>
 </template>
 

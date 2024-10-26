@@ -54,3 +54,14 @@ export type CartItem = {
 	pricePerBook: number
 	quantity: number
 }
+
+export type Borrow = {
+	_id: string
+	user: User
+	book: Book
+	borrowDate: Date
+	dueDate: Date
+	returnDate?: Date
+	isReturned: boolean
+	note?: string
+}

@@ -17,8 +17,8 @@ const mode = useColorMode()
 	<DropdownMenu>
 		<DropdownMenuTrigger as-child>
 			<Button variant="outline" class="aspect-square">
-				<span class="material-symbols-outlined px-4 dark:hidden"> light_mode </span>
-				<span class="material-symbols-outlined px-4 hidden dark:block"> dark_mode </span>
+				<span class="material-symbols-outlined dark:hidden"> light_mode </span>
+				<span class="material-symbols-outlined hidden dark:block"> dark_mode </span>
 				<span class="sr-only">Toggle theme</span>
 			</Button>
 		</DropdownMenuTrigger>

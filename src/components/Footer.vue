@@ -26,8 +26,9 @@
 				</RouterLink>
 			</div>
 		</div>
-		<div class="py-2">
-			<p class="font-serif italic text-lg">
+		<div class="pt-2 text-md text-justify">
+			<p class="font-serif italic">Đại học Cần Thơ - B2207541 - Trầm Tri Min</p>
+			<p class="font-serif italic pr-20 lg:p-0">
 				“A reader lives a thousand lives before he dies . . . The man who never reads lives
 				only one.” - George R.R. Martin
 			</p>

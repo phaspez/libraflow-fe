@@ -67,27 +67,43 @@ const handleUpdate = async (values: any) => {
 						>
 					</BreadcrumbItem>
 					<BreadcrumbSeparator />
-					<BreadcrumbItem>
-						<router-link to="/books" class="items-center flex gap-2">
-							<i class="fa-solid fa-user"></i>Trang cá nhân</router-link
-						>
-					</BreadcrumbItem>
+					<BreadcrumbItem> <i class="fa-solid fa-user"></i>Trang cá nhân </BreadcrumbItem>
 				</BreadcrumbList>
 			</Breadcrumb>
 		</div>
-		<h2>Xin chào, {{ user?.firstName + ' ' + user?.lastName }}!</h2>
+		<div class="fixed right-0 top-0 -z-10 h-screen img">
+			<img src="@/assets/bookshelf.jpg" alt="Login" class="w-full h-full object-cover" />
+		</div>
 
-		<Tabs default-value="account">
-			<TabsList>
-				<TabsTrigger value="account"> Tài khoản </TabsTrigger>
-				<TabsTrigger value="update"> Cập nhật thông tin </TabsTrigger>
-			</TabsList>
-			<TabsContent value="account"> <ProfileCard v-if="user" :user="user" /> </TabsContent>
-			<TabsContent value="update"
-				><UserForm v-if="user" :handle-update="handleUpdate" :initial-value="user" />
-			</TabsContent>
-		</Tabs>
+		<div class="md:max-w-[400px]">
+			<h1>Xin chào, {{ user?.firstName + ' ' + user?.lastName }}!</h1>
+			<div class="py-2">
+				<span class="flex gap-1 items-center"
+					>Đi đến trang
+					<RouterLink to="/history" class="flex gap-1 items-center link">
+						Lịch sử mượn sách
+						<span class="material-symbols-outlined"> arrow_outward </span></RouterLink
+					></span
+				>
+			</div>
+			<Tabs default-value="account">
+				<TabsList>
+					<TabsTrigger value="account"> Tài khoản </TabsTrigger>
+					<TabsTrigger value="update"> Cập nhật thông tin </TabsTrigger>
+				</TabsList>
+				<TabsContent value="account">
+					<ProfileCard v-if="user" :user="user" />
+				</TabsContent>
+				<TabsContent value="update"
+					><UserForm v-if="user" :handle-update="handleUpdate" :initial-value="user" />
+				</TabsContent>
+			</Tabs>
+		</div>
 	</div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.img {
+	@apply overflow-hidden w-full md:w-1/3 lg:w-1/2 md:brightness-75 md:opacity-80 hidden md:block;
+}
+</style>
