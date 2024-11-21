@@ -34,6 +34,9 @@ const props = defineProps<BorrowProp>()
 					</p>
 				</div>
 			</div>
+			<Badge :variant="borrow.isAccepted ? 'default' : 'destructive'">
+				{{ borrow.isAccepted ? 'Đã duyệt' : 'Chưa duyệt' }}
+			</Badge>
 			<Badge :variant="borrow.isReturned ? 'default' : 'destructive'">
 				{{ borrow.isReturned ? 'Đã nhận' : 'Chưa nhận' }}
 			</Badge>

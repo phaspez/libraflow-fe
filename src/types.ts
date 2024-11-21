@@ -62,6 +62,7 @@ export type Borrow = {
 	borrowDate: Date
 	dueDate: Date
 	returnDate?: Date
+	isAccepted: boolean
 	isReturned: boolean
 	note?: string
 }

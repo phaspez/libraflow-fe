@@ -198,7 +198,7 @@ const handleBorrowItems = async () => {
 			class="w-full grid grid-cols-1 justify-items-center gap-4 text-center p-2 bg-slate-700/10 rounded-lg"
 		>
 			<h1 class="text-black/50 dark:text-white/50">Giỏ hàng của bạn đang trống!</h1>
-			<p class="text-black/50 dark:text-white/50">Hãy thêm sách vào đề tiếp tục</p>
+			<p class="text-black/50 dark:text-white/50">Hãy thêm sách vào để tiếp tục</p>
 			<img class="opacity-50" src="/paper-cut-books.png" />
 		</div>
 	</div>

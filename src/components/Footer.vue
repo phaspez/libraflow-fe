@@ -9,12 +9,12 @@
 				<span class="grow" />
 			</div>
 			<div class="grid grid-cols-1">
-				<RouterLink to="/books" class="link"
-					><span class="material-symbols-outlined"> book </span>Sách
-				</RouterLink>
-				<RouterLink to="/books" class="link">
-					<span class="material-symbols-outlined"> shopping_cart </span> Giỏ hàng
-				</RouterLink>
+				<!--				<RouterLink to="/books" class="link"-->
+				<!--					><span class="material-symbols-outlined"> book </span>Sách-->
+				<!--				</RouterLink>-->
+				<!--				<RouterLink to="/books" class="link">-->
+				<!--					<span class="material-symbols-outlined"> shopping_cart </span> Giỏ hàng-->
+				<!--				</RouterLink>-->
 			</div>
 			<div class="lg:hidden" />
 			<div class="grid grid-cols-1">
