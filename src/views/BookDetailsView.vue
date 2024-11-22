@@ -107,6 +107,7 @@ const handleAddToCart = () => {
 					</p>
 				</div>
 				<div>
+					<h2>{{ book?.price }} đ</h2>
 					<div class="flex gap-2 items-end py-2">
 						<NumberField
 							id="count"
